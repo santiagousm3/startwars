@@ -1,0 +1,18 @@
+<div class="container-fluid">
+ <!-- <pre>{{ film$ | async | json }}</pre>-->
+    <div class="row p-lg-4 centrar-elemento">
+  <div class="card col-lg-3 d-flex align-items-stretch m-2"  *ngFor="let film of film$ | async " >
+      <div class="row h-100">
+        <div class="col-sm-4 p-0">
+          <img class="d-block w-100 h-100" src="../../../assets/img/peliculas/{{film.episode_id}}.jpg" alt="">
+        </div>
+        <div class="col-sm-8">
+          <div class="card-block">
+            <h4 class="card-title">{{film.title }}</h4>
+            <p><b>Año: </b> {{film.release_date | date : 'yyyy' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
