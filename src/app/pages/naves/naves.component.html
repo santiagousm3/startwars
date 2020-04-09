@@ -1,0 +1,45 @@
+<div class="fondop">
+    <div class="container-fluid">
+      <div class="text-left pt-4">
+        <ul class="breadcrumb">
+          <a routerLink="inicio" >Inicio</a>
+          <a  class="active">Naves</a>
+        </ul>
+      </div>
+      <div class="container mt-2">
+          <form (ngSubmit)="buscarnave()" name="formbuscar"  class="text-right">
+            <div class="form-group">
+        <div class="input-group col-md-6 offset-md-6">
+          <input type="text" class="form-control" placeholder="Buscar Nombre" [(ngModel)]="fieldbuscar" name="fieldbuscar" [ngModelOptions]="{standalone: true}" >
+          <div class="input-group-append">
+            <button class="btn btn-success " type="submit"><i class="fa fa-search"></i></button>
+            <button class="btn btn-primary " type="button" (click)="limpiar()" ><i class="fa fa-eraser" ></i></button>
+          </div>
+        </div>
+      </div>
+        </form>
+      </div>
+     <div class="row p-lg-4 centrar-elemento">
+      <div class="card col-lg-3  col-sm-6 d-flex align-items-stretch m-2 animate-repeat zoom cmano" *ngFor="let nv of naves$  |  async"  routerLink="vernave/{{getvalor( nv.url )}}">
+          <div class="row h-100">
+            <div class="col-sm-12 col-md-3 p-0 ">
+              <img class="d-block w-100 h-100" src="../../../assets/img/naves/{{getvalor( nv.url)}}.jpg" alt="">
+            </div>
+            <div class="col-sm-12 col-md-9 ">
+              <div class="card-block">
+                <h4 class="card-title">{{nv.name }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+         <!-- paginación -->
+         <div class="col-md-12 mt-2" [hidden]="ver === 0">
+         <ul class="pagination centrar-elemento">
+          <li *ngFor="let p of listpaginas"  (click)="setPage(p.n)"  [ngClass]="{'active': p.n === currentPage}"  class="page-item cmano" >
+          <a class="page-link">{{p.n}}</a>
+          </li>
+        </ul>
+      </div>
+        </div>
+    </div>
+    </div>

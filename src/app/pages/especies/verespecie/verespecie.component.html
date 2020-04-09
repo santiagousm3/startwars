@@ -1,0 +1,103 @@
+<div class="container-fluid">
+    <div class="text-left pt-4">
+        <ul class="breadcrumb">
+          <a routerLink="" >Inicio</a>
+          <a routerLink="../../../especies" >Especies</a>
+          <a  class="active" *ngIf="especie$ | async as esp">{{ esp.name }}</a>
+        </ul>
+      </div>
+      <div class="row centrar-elemento" [hidden]="seleccionado === 10">
+      <div class="col-md-4 col-sm-12 card">
+        <div class="card-header">
+           {{seltexto}}
+          </div>
+          <div class="card-body" >
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" [hidden]="seleccionado != 0"  *ngIf="seleccionado === 0 && especie$ | async as esp ">
+            <div class="carousel-inner">
+              <div class="carousel-item cmano" *ngFor="let vi of esp.people; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../personajes/verpersonaje/{{getvalor(vi,28)}}">
+                <img class="d-block w-100" src="../../../../assets/img/personajes/{{getvalor(vi,28)}}.jpg" alt="First slide" style="height: 350px;">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          <div id="listadoplanetas" class="carousel slide" data-ride="carousel"   [hidden]="seleccionado != 1" *ngIf="seleccionado === 1 && especie$ | async as esp ">
+            <div class="carousel-inner">
+              <div class="carousel-item cmano" *ngFor="let vi of esp.films; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../peliculas/verpelicula/{{getvalor(vi,27)}}">
+                <img class="d-block w-100" src="../../../../assets/img/peliculas/{{getvalor(vi,27)}}.jpg" alt="First slide" style="height: 350px;">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#listadoplanetas" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#listadoplanetas" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          </div>
+      </div>
+    </div>
+    <div class="row centrar-elemento mt-2"  *ngIf="especie$ | async as esp">
+      <div class="col-md-4 col-sm-12">
+        <div class="card-container manual-flip">
+            <div class="card">
+                <div class="front" >
+                    <div class="cover" >
+                        <img src="../../../assets/img/especies/{{getvalor(esp.url,29) }}.jpg" class="img-fluid w-100 h-100" style="max-width: 400px;" />
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                            <h3 class="name  text-truncate">{{ esp.name }}</h3>
+                            <p class="profession">Clasificación: {{ esp.classification }}</p>
+                            <p class="text-justify  text-truncate">Designación: {{ esp.designation }}</p>
+                            <hr/>
+                            <p class="text-justify  text-truncate">Altura promedio: {{ esp.average_height }}</p>
+                            <hr/>
+                            <p class="text-justify  text-truncate">Promedio de vida: {{ esp.average_lifespan}}</p>
+                            <hr/>
+                            <p class="text-justify  text-truncate">Cabello: {{ esp.hair_colors}}</p>
+                            <hr/>
+                            <p class="text-justify  text-truncate">Color ojos: {{ esp.eye_colors}}</p>
+                            <hr/>
+                            <p class="text-justify  text-truncate">Tono piel: {{ esp.skin_colors}}</p>
+                            <hr/>
+                            <p class="text-justify  text-truncate">Idioma: {{ esp.language}}</p>
+                            <hr/>
+                            <p class="text-justify  text-truncate">Planeta: {{ esp.homeworld}}</p>
+                        </div>
+                        <div class="footer">
+                            <button class="btn btn-simple text-success" onclick="rotateCard(this)">
+                                <i class="fa fa-mail-forward text-primary"></i> Girar
+                            </button>
+                        </div>
+                    </div>
+                </div> <!-- end front panel -->
+                <div class="back">
+                    <div class="header">
+                        <h5 class="motto">Ficha técnica</h5>
+                    </div>
+                    <div class="content">
+                        <div class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action " (click)="seleccionado = 0; seltexto = 'Personajes'" [ngClass]="{'active' : seleccionado === 0}">Personajes</button>
+                            <button type="button" class="list-group-item list-group-item-action" (click)="seleccionado = 1 ;seltexto = 'Películas'" [ngClass]="{'active' : seleccionado === 1}">Películas</button>
+                          </div>
+                    </div>
+                    <div class="footer">
+                        <button class="btn btn-simple text-primary"   onclick="rotateCard(this)">
+                            <i class="fa fa-reply text-danger"></i> Regresar
+                        </button>
+                    </div>
+                </div> <!-- end back panel -->
+            </div> <!-- end card -->
+        </div> <!-- end card-container -->
+   </div> <!-- end col sm 3 -->
+    </div>
+</div>

@@ -33,7 +33,6 @@ input {position: absolute; display: none}
   position: absolute;
   overflow: hidden;
   cursor: pointer;
-  z-index: 1 !important;
 }
 
 .material-icons.md-36 { font-size: 36px; color: #03A9F4 }
@@ -61,9 +60,7 @@ input {position: absolute; display: none}
 
 .btn:not(:first-child) {
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  z-index: -2;
-  
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";  
   -webkit-transition: all 0.6s cubic-bezier(.87,-.41,.19,1.44);
   transition: all 0.6s cubic-bezier(.87,-.41,.19,1.44);
 }
@@ -104,6 +101,7 @@ input#toggle:checked ~ #show-menu .btn:nth-child(7) {
 .menuBtn, .closeBtn {
   position: absolute;
   transition: all 0.3s ease;
+  z-index: 1;
 }
 
 .closeBtn {
@@ -111,6 +109,10 @@ input#toggle:checked ~ #show-menu .btn:nth-child(7) {
   opacity: 0;
 }
 
+.btn img {
+    width: 200px;
+    height: 205px;
+}
 input#toggle:checked ~ #show-menu .btn .menuBtn {
   transform: translateY(-50px);
   opacity: 0;
@@ -120,11 +122,15 @@ input#toggle:checked ~ #show-menu .btn .closeBtn {
   transform: translateY(0px);
   opacity: 1;
 }
-
+.contenedor div.cimagen {
+  width: 200px;
+  height: 200px;
+}
 .contenedor {
   position: relative;
   width: 100%;
   max-width: 200px;
+  left:-10px;
 }
 .overlay {
   position: absolute; 
@@ -138,8 +144,62 @@ input#toggle:checked ~ #show-menu .btn .closeBtn {
   font-size: 20px;
   border-radius: 10px;
   padding: 20px;
+  left: 10px;
   text-align: center;
 }
 .contenedor:hover .overlay {
   opacity: 1;
 }
+@media screen and (max-width: 1872px) {
+  .menu {
+    bottom: 70%;
+  left: 50%;
+  }
+  }
+
+  @media screen and (max-width: 883px) {
+    .menu {
+      bottom: 70%;
+    left: 40%;
+    }
+    }
+    @media screen and (max-width: 778px) {
+      .menu {
+        bottom: 50%;
+      }
+      .overlay {
+        font-size: 14px;
+      }
+      .btn{
+        width: 150px;
+        height: 150px;
+        bottom: 20px;
+      }
+      .btn img ,.contenedor div.cimagen{
+        width: 150px;
+        height: 150px;
+    }
+      input#toggle:checked ~ #show-menu .btn:nth-child(2) {
+        top: -350px;
+        left: 0px;
+      }
+      input#toggle:checked ~ #show-menu .btn:nth-child(3) {
+        top: -250px;
+      }
+      input#toggle:checked ~ #show-menu .btn:nth-child(7) {
+        top: -250px;
+        left: -150px;
+      }
+      input#toggle:checked ~ #show-menu .btn:nth-child(6) {	
+        top: -50px;
+      }
+      input#toggle:checked ~ #show-menu .btn:nth-child(4) {	
+        left: 150px;
+        bottom: -80px;
+      }
+      input#toggle:checked ~ #show-menu .btn:nth-child(5) {
+        top: 50px;
+        left: 0px;	
+      }
+      
+      }
