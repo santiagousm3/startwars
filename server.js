@@ -5,11 +5,11 @@ const path = require ('ruta');
 aplicación const = express ();
 
 // Servir solo los archivos estáticos del directorio dist
-app.use (express.static (__ dirname + '/ dist /startwars-deploy'));
+app.use (express.static (__ dirname + '/ dist /proyecto'));
 
 app.get ('/ *', function (req, res) {
     
-res.sendFile (path.join (__ dirname + '/ dist /startwars-deploy/index.html'));
+res.sendFile (path.join (__ dirname + '/ dist /proyecto/index.html'));
 });
 
 // Inicie la aplicación escuchando en el puerto predeterminado de Heroku
