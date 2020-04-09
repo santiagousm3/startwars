@@ -1,5 +1,5 @@
 {
-  "name": "proyecto",
+  "name": "startwars-deploy",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,8 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -50,9 +49,5 @@
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
-  },
-  "engines": {
-    "node": "12.16.1",
-    "npm": "~6.13.4"
   }
 }
