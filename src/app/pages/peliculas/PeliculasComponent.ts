@@ -11,7 +11,7 @@ import { Angular2SwapiService, Film } from 'angular2-swapi';
 })
 
 export class PeliculasComponent implements OnInit {
-
+/****Se crean las variables a utilizar */
   film$: Observable<Film[]>;
   peliculas: Observable<Film[]>;
   fieldbuscar;
@@ -20,16 +20,18 @@ export class PeliculasComponent implements OnInit {
   constructor(private swapi: Angular2SwapiService) {
   }
   ngOnInit(): void {
+     /****Se inicializan las variables a utilizar */
     this.film$ = this.swapi.getFilms(); this.peliculas = this.film$;
     this.fieldbuscar = '';
     this.currentPage = 1;
     this.listpaginas = [{n: 1 }];
   }
-
+    /****asigna una ubicación de pagina */
   setPage(n){
     this.currentPage = n;
     this.film$ = this.swapi.getFilms();
   }
+  /*************************Busca en la lista la pelicula por nombre o año */
   getProjectByName(bsc) {
     return this.peliculas
       .pipe(map(projects => projects.filter(proj => (new Date(proj.release_date).getFullYear().toString().indexOf(bsc) > -1)
@@ -44,7 +46,7 @@ export class PeliculasComponent implements OnInit {
     this.peliculas = this.film$;
     this.fieldbuscar = '';
   }
-
+ /****Extrae solo el id de la url */
   getvalor(s)
   {
     let cambio = s.toString().substr(27);

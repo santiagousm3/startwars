@@ -8,6 +8,7 @@ import { Angular2SwapiService, Species } from 'angular2-swapi';
   styleUrls: ['./especies.component.css']
 })
 export class EspeciesComponent implements OnInit {
+  /****Se crean las variables a utilizar */
   especie$: Observable<Species[]>;
   totalitems;
   fieldbuscar;
@@ -18,6 +19,7 @@ export class EspeciesComponent implements OnInit {
   constructor(private swapi: Angular2SwapiService) { }
 
   ngOnInit(): void {
+    /****Se inicializan las variables a utilizar */
     this.especie$ = this.swapi.getSpecies();
     this.fieldbuscar = '';
     this.currentPage = 1;
@@ -26,6 +28,7 @@ export class EspeciesComponent implements OnInit {
     this.cargarpaginas();
     this.ver= 1;
   }
+    /****Carga la lista con numeros de paginación */
   cargarpaginas()
   {
     for(let i = 1; i <= Math.ceil(this.totalitems / 10); i++)
@@ -37,22 +40,26 @@ export class EspeciesComponent implements OnInit {
       this.listpaginas = [{n: 1 }];
     }
   }
+    /****asigna una ubicación de pagina */
   setPage(n){
     this.currentPage = n;
     this.especie$ = this.swapi.getSpecies(n);
   }
+
+    /****Busca la especie */
   buscarespecie() {
     this.especie$ = this.swapi.searchSpecies(this.fieldbuscar);
     this.ver= 0;
   }
 
+    /****Limpia la consulta */
   limpiar() {
     this.especie$ = this.swapi.getSpecies();
     this.fieldbuscar = '';
     this.ver=1;
     this.currentPage = 1;
   }
-
+  /****Extrae solo el id de la url */
   getvalor(s)
   {
     let cambio = s.toString().substr(29);

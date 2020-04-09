@@ -17,6 +17,7 @@ export class NavesComponent implements OnInit {
   constructor(private swapi: Angular2SwapiService) { }
 
   ngOnInit(): void {
+    /****Se crean las variables a utilizar */
   this.naves$ = this.swapi.getStarships();
   this.fieldbuscar = '';
   this.currentPage = 1;
@@ -52,7 +53,7 @@ export class NavesComponent implements OnInit {
     this.ver = 1;
     this.currentPage = 1;
   }
-
+  /****Extrae solo el id de la url */
   getvalor(s)
   {
     let cambio = s.toString().substr(31);
