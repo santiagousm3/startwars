@@ -152,17 +152,10 @@ input#toggle:checked ~ #show-menu .btn .closeBtn {
 }
 @media screen and (max-width: 1872px) {
   .menu {
-    bottom: 70%;
+    bottom: 60%;
   left: 50%;
   }
   }
-
-  @media screen and (max-width: 883px) {
-    .menu {
-      bottom: 70%;
-    left: 40%;
-    }
-    }
     @media screen and (max-width: 778px) {
       .menu {
         bottom: 50%;
