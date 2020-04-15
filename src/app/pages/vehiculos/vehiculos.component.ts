@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Angular2SwapiService, Vehicle } from 'angular2-swapi';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-vehiculos',
@@ -14,15 +15,14 @@ export class VehiculosComponent implements OnInit {
   currentPage;
   listpaginas;
   ver;
-  constructor(private swapi: Angular2SwapiService) { }
+  constructor(private swapi: Angular2SwapiService,  private  http: HttpClient) { }
 
   ngOnInit(): void {
     this.vehiculo$ = this.swapi.getVehicles();
     this.fieldbuscar = '';
     this.currentPage = 1;
-    this.totalitems = 39;
+    this.http.get('https://swapi.py4e.com/api/vehicles/').subscribe((resp: any) => {   this.totalitems = parseInt(resp.count ); this.cargarpaginas();});
     this.listpaginas = [];
-    this.cargarpaginas();
     this.ver = 1;
   }
   cargarpaginas()
@@ -54,7 +54,7 @@ export class VehiculosComponent implements OnInit {
 
   getvalor(s)
   {
-    let cambio = s.toString().substr(30);
+    let cambio = s.toString().substr(36);
     return cambio.replace('/','');
   }
 

@@ -27,7 +27,7 @@ const routes: Routes = [{path: 'inicio', component: MenuComponent, pathMatch: 'f
 {path: 'inicio/planetas/verplaneta/:id', component: VerplanetaComponent},
 {path: 'inicio/especies/verespecie/:id', component: VerespecieComponent},
 {path: 'inicio/vehiculos/vervehiculo/:id', component: VervehiculoComponent},
-{path: 'inicio/neves/vernave/:id', component: VernaveComponent},
+{path: 'inicio/naves/vernave/:id', component: VernaveComponent},
 {path: '**', pathMatch: 'full', redirectTo: 'inicio'}];
 
 @NgModule({

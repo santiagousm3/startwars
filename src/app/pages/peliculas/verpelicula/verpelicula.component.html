@@ -14,8 +14,8 @@
               <div class="card-body" >
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" [hidden]="seleccionado != 0"  *ngIf="seleccionado === 0 && film$ | async as pelicula ">
                 <div class="carousel-inner">
-                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.characters; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../personajes/verpersonaje/{{getvalor(vi,28)}}">
-                    <img class="d-block w-100" src="../../../../assets/img/personajes/{{getvalor(vi,28)}}.jpg"  style="height: 350px;">
+                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.characters; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../personajes/verpersonaje/{{getvalor(vi,34)}}">
+                    <img class="d-block w-100" src="../../../../assets/img/personajes/{{getvalor(vi,34)}}.jpg"  style="height: 350px;">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -29,8 +29,8 @@
               </div>
               <div id="listadoplanetas" class="carousel slide" data-ride="carousel"   [hidden]="seleccionado != 1" *ngIf="seleccionado === 1 && film$ | async as pelicula ">
                 <div class="carousel-inner">
-                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.planets; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../planetas/verplaneta/{{getvalor(vi,29)}}">
-                    <img class="d-block w-100" src="../../../../assets/img/planetas/{{getvalor(vi,29)}}.jpg"  style="height: 350px;">
+                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.planets; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../planetas/verplaneta/{{getvalor(vi,35)}}">
+                    <img class="d-block w-100" src="../../../../assets/img/planetas/{{getvalor(vi,35)}}.jpg"  style="height: 350px;">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#listadoplanetas" role="button" data-slide="prev">
@@ -44,8 +44,8 @@
               </div>
               <div id="listadonaves" class="carousel slide" data-ride="carousel"   [hidden]="seleccionado != 2"  *ngIf="seleccionado === 2 && film$ | async as pelicula ">
                 <div class="carousel-inner">
-                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.starships; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../naves/vernave/{{getvalor(vi,31)}}">
-                    <img class="d-block w-100" src="../../../../assets/img/naves/{{getvalor(vi,31)}}.jpg" alt="First slide" style="height: 350px;">
+                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.starships; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../naves/vernave/{{getvalor(vi,37)}}">
+                    <img class="d-block w-100" src="../../../../assets/img/naves/{{getvalor(vi,37)}}.jpg" alt="First slide" style="height: 350px;">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#listadonaves" role="button" data-slide="prev">
@@ -59,8 +59,8 @@
               </div>
               <div id="listadovehiculos" class="carousel slide" data-ride="carousel"   [hidden]="seleccionado != 3" *ngIf="seleccionado === 3 && film$ | async as pelicula ">
                 <div class="carousel-inner">
-                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.vehicles; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../vehiculos/vervehiculo/{{getvalor(vi,30)}}" >
-                    <img class="d-block w-100" src="../../../../assets/img/vehiculos/{{getvalor(vi,30)}}.jpg" alt="First slide" style="height: 350px;">
+                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.vehicles; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../vehiculos/vervehiculo/{{getvalor(vi,36)}}" >
+                    <img class="d-block w-100" src="../../../../assets/img/vehiculos/{{getvalor(vi,36)}}.jpg" alt="First slide" style="height: 350px;">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#listadovehiculos" role="button" data-slide="prev">
@@ -74,8 +74,8 @@
               </div>
               <div id="listadoespecies" class="carousel slide" data-ride="carousel"   [hidden]="seleccionado != 4" *ngIf="seleccionado === 4 && film$ | async as pelicula ">
                 <div class="carousel-inner">
-                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.species; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../especies/verespecie/{{getvalor(vi,29)}}" >
-                    <img class="d-block w-100" src="../../../../assets/img/especies/{{getvalor(vi,29)}}.jpg" alt="First slide" style="height: 350px;">
+                  <div class="carousel-item cmano" *ngFor="let vi of pelicula.species; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../especies/verespecie/{{getvalor(vi,35)}}" >
+                    <img class="d-block w-100" src="../../../../assets/img/especies/{{getvalor(vi,35)}}.jpg" alt="First slide" style="height: 350px;">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#listadoespecies" role="button" data-slide="prev">

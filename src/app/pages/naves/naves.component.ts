@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Angular2SwapiService, Starship } from 'angular2-swapi';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-naves',
@@ -14,16 +15,16 @@ export class NavesComponent implements OnInit {
   currentPage;
   listpaginas;
   ver;
-  constructor(private swapi: Angular2SwapiService) { }
+  constructor(private swapi: Angular2SwapiService, private  http: HttpClient) { }
 
   ngOnInit(): void {
     /****Se crean las variables a utilizar */
   this.naves$ = this.swapi.getStarships();
   this.fieldbuscar = '';
   this.currentPage = 1;
-  this.totalitems = 37;
+  // tslint:disable-next-line: radix
+  this.http.get('https://swapi.py4e.com/api/starships/').subscribe((resp: any) => {   this.totalitems = parseInt(resp.count ); this.cargarpaginas(); });
   this.listpaginas = [];
-  this.cargarpaginas();
   this.ver = 1;
 
   }
@@ -56,7 +57,7 @@ export class NavesComponent implements OnInit {
   /****Extrae solo el id de la url */
   getvalor(s)
   {
-    let cambio = s.toString().substr(31);
+    let cambio = s.toString().substr(37);
     return cambio.replace('/','');
   }
 

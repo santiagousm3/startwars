@@ -14,8 +14,8 @@
           <div class="card-body" >
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" [hidden]="seleccionado != 0"  *ngIf="seleccionado === 0 && nave$ | async as nv ">
             <div class="carousel-inner">
-              <div class="carousel-item cmano" *ngFor="let vi of nv.pilots; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../personajes/verpersonaje/{{getvalor(vi,28)}}">
-                <img class="d-block w-100" src="../../../../assets/img/personajes/{{getvalor(vi,28)}}.jpg" alt="First slide" style="height: 350px;">
+              <div class="carousel-item cmano" *ngFor="let vi of nv.pilots; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../personajes/verpersonaje/{{getvalor(vi,34)}}">
+                <img class="d-block w-100" src="../../../../assets/img/personajes/{{getvalor(vi,34)}}.jpg" alt="First slide" style="height: 350px;">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -29,8 +29,8 @@
           </div>
           <div id="listadoplanetas" class="carousel slide" data-ride="carousel"   [hidden]="seleccionado != 1" *ngIf="seleccionado === 1 && nave$ | async as nv ">
             <div class="carousel-inner">
-              <div class="carousel-item cmano" *ngFor="let vi of nv.films; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../peliculas/verpelicula/{{getvalor(vi,27)}}" >
-                <img class="d-block w-100" src="../../../../assets/img/peliculas/{{getvalor(vi,27)}}.jpg" alt="First slide" style="height: 350px;">
+              <div class="carousel-item cmano" *ngFor="let vi of nv.films; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../peliculas/verpelicula/{{getvalor(vi,33)}}" >
+                <img class="d-block w-100" src="../../../../assets/img/peliculas/{{getvalor(vi,33)}}.jpg" alt="First slide" style="height: 350px;">
               </div>
             </div>
             <a class="carousel-control-prev" href="#listadoplanetas" role="button" data-slide="prev">
@@ -51,7 +51,7 @@
             <div class="card">
                 <div class="front" >
                     <div class="cover" >
-                        <img src="../../../assets/img/naves/{{ getvalor(vh.url,31)}}.jpg" class="img-fluid w-100 h-100" style="max-width: 400px;" />
+                        <img src="../../../assets/img/naves/{{ getvalor(vh.url,37)}}.jpg" class="img-fluid w-100 h-100" style="max-width: 400px;" />
                     </div>
                     <div class="content">
                         <div class="main">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Angular2SwapiService, Planet } from 'angular2-swapi';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-planetas',
@@ -15,15 +16,14 @@ export class PlanetasComponent implements OnInit {
   currentPage;
   listpaginas;
   ver;
-  constructor(private swapi: Angular2SwapiService) { }
+  constructor(private swapi: Angular2SwapiService, private  http: HttpClient) { }
 
   ngOnInit(): void {
     this.planet$ = this.swapi.getPlanets();
     this.fieldbuscar = '';
     this.currentPage = 1;
-    this.totalitems = 61;
+    this.http.get('https://swapi.py4e.com/api/planets/').subscribe((resp: any) => {   this.totalitems = parseInt(resp.count );this.cargarpaginas(); });
     this.listpaginas = [];
-    this.cargarpaginas();
     this.ver = 1;
   }
   cargarpaginas()
@@ -55,7 +55,7 @@ export class PlanetasComponent implements OnInit {
 
   getvalor(s)
   {
-    let cambio = s.toString().substr(29);
+    let cambio = s.toString().substr(35);
     return cambio.replace('/','');
   }
 }

@@ -18,6 +18,7 @@ import { VehiculosComponent } from './pages/vehiculos/vehiculos.component';
 import { VervehiculoComponent } from './pages/vehiculos/vervehiculo/vervehiculo.component';
 import { NavesComponent } from './pages/naves/naves.component';
 import { VernaveComponent } from './pages/naves/vernave/vernave.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { VernaveComponent } from './pages/naves/vernave/vernave.component';
     BrowserModule,
     AppRoutingModule,
     Angular2SwapiModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

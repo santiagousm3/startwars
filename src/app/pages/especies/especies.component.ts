@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Angular2SwapiService, Species } from 'angular2-swapi';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-especies',
@@ -16,16 +17,16 @@ export class EspeciesComponent implements OnInit {
   listpaginas;
   ver;
 
-  constructor(private swapi: Angular2SwapiService) { }
+  constructor(private swapi: Angular2SwapiService, private  http: HttpClient) { }
 
   ngOnInit(): void {
     /****Se inicializan las variables a utilizar */
     this.especie$ = this.swapi.getSpecies();
     this.fieldbuscar = '';
     this.currentPage = 1;
-    this.totalitems = 37;
+    // tslint:disable-next-line: radix
+    this.http.get('https://swapi.py4e.com/api/species/').subscribe((resp: any) => {   this.totalitems = parseInt(resp.count );this.cargarpaginas(); });
     this.listpaginas = [];
-    this.cargarpaginas();
     this.ver= 1;
   }
     /****Carga la lista con numeros de paginación */
@@ -62,7 +63,7 @@ export class EspeciesComponent implements OnInit {
   /****Extrae solo el id de la url */
   getvalor(s)
   {
-    let cambio = s.toString().substr(29);
+    let cambio = s.toString().substr(35);
     return cambio.replace('/','');
   }
 }

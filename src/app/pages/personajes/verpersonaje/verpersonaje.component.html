@@ -14,8 +14,8 @@
           <div class="card-body" >
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" [hidden]="seleccionado != 0"  *ngIf="seleccionado === 0 && personaje$ | async as pers ">
             <div class="carousel-inner">
-              <div class="carousel-item cmano" *ngFor="let vi of pers.films; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../peliculas/verpelicula/{{getvalor(vi,27)}}">
-                <img class="d-block w-100" src="../../../../assets/img/peliculas/{{getvalor(vi,27)}}.jpg" alt="First slide" style="height: 350px;">
+              <div class="carousel-item cmano" *ngFor="let vi of pers.films; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../peliculas/verpelicula/{{getvalor(vi,33)}}">
+                <img class="d-block w-100" src="../../../../assets/img/peliculas/{{getvalor(vi,33)}}.jpg" alt="First slide" style="height: 350px;">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -29,8 +29,8 @@
           </div>
           <div id="listadonaves" class="carousel slide" data-ride="carousel"   [hidden]="seleccionado != 2"  *ngIf="seleccionado === 2 && personaje$ | async as pers">
             <div class="carousel-inner">
-              <div class="carousel-item cmano" *ngFor="let vi of pers.starships; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../naves/vernave/{{getvalor(vi,31)}}">
-                <img class="d-block w-100" src="../../../../assets/img/naves/{{getvalor(vi,31)}}.jpg" alt="First slide" style="height: 350px;">
+              <div class="carousel-item cmano" *ngFor="let vi of pers.starships; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../naves/vernave/{{getvalor(vi,37)}}">
+                <img class="d-block w-100" src="../../../../assets/img/naves/{{getvalor(vi,37)}}.jpg" alt="First slide" style="height: 350px;">
               </div>
             </div>
             <a class="carousel-control-prev" href="#listadonaves" role="button" data-slide="prev">
@@ -44,8 +44,8 @@
           </div>
           <div id="listadovehiculos" class="carousel slide" data-ride="carousel"   [hidden]="seleccionado != 3" *ngIf="seleccionado === 3 && personaje$ | async as pers ">
             <div class="carousel-inner">
-              <div class="carousel-item cmano" *ngFor="let vi of pers.vehicles; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../vehiculos/vervehiculo/{{getvalor(vi,30)}}">
-                <img class="d-block w-100" src="../../../../assets/img/vehiculos/{{getvalor(vi,30)}}.jpg" alt="First slide" style="height: 350px;">
+              <div class="carousel-item cmano" *ngFor="let vi of pers.vehicles; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../vehiculos/vervehiculo/{{getvalor(vi,36)}}">
+                <img class="d-block w-100" src="../../../../assets/img/vehiculos/{{getvalor(vi,36)}}.jpg" alt="First slide" style="height: 350px;">
               </div>
             </div>
             <a class="carousel-control-prev" href="#listadovehiculos" role="button" data-slide="prev">
@@ -59,8 +59,8 @@
           </div>
           <div id="listadoespecies" class="carousel slide" data-ride="carousel"   [hidden]="seleccionado != 4" *ngIf="seleccionado === 4 && personaje$ | async as pers">
             <div class="carousel-inner">
-              <div class="carousel-item cmano" *ngFor="let vi of pers.species; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../especies/verespecie/{{getvalor(vi,29)}}">
-                <img class="d-block w-100" src="../../../../assets/img/especies/{{getvalor(vi,29)}}.jpg" alt="First slide" style="height: 350px;">
+              <div class="carousel-item cmano" *ngFor="let vi of pers.species; let j = index"  [ngClass]="{'active': j === 0}" routerLink="../../../especies/verespecie/{{getvalor(vi,35)}}">
+                <img class="d-block w-100" src="../../../../assets/img/especies/{{getvalor(vi,35)}}.jpg" alt="First slide" style="height: 350px;">
               </div>
             </div>
             <a class="carousel-control-prev" href="#listadoespecies" role="button" data-slide="prev">
@@ -75,17 +75,17 @@
           </div>
       </div>
     </div>
-    <div class="row centrar-elemento mt-2"  *ngIf="personaje$ | async as pers ">
+    <div class="row centrar-elemento mt-2"  *ngIf="personaje$ | async as pers " >
       <div class="col-md-4 col-sm-12">
         <div class="card-container manual-flip">
             <div class="card">
                 <div class="front" >
                     <div class="cover" >
-                        <img src="../../../assets/img/personajes/{{ getvalor(pers.url,28)}}.jpg" class="img-fluid w-100 h-100" style="max-width: 400px;" />
+                        <img src="../../../assets/img/personajes/{{ getvalor(pers.url,34)}}.jpg" class="img-fluid w-100 h-100" style="max-width: 400px;" />
                     </div>
                     <div class="content">
                         <div class="main">
-                            <h3 class="name  text-truncate">{{ pers.name }}</h3>
+                            <h3 class="name  text-truncate">Nombre: {{ pers.name }}</h3>
                             <p class="profession">Altura: {{ pers.height}}</p>
                             <p class="text-justify  text-truncate">Masa: {{ pers.mass }}</p>
                             <hr/>
@@ -99,7 +99,7 @@
                             <hr/>
                             <p class="text-justify  text-truncate">Género: {{ pers.gender}}</p>
                             <hr/>
-                            <p class="text-justify  text-truncate">Planeta: {{ pers.homeworld}}</p>
+                            <p class="text-justify  text-truncate">Planeta: {{nombreplaneta}}</p>
                         </div>
                         <div class="footer">
                             <button class="btn btn-simple text-success" onclick="rotateCard(this)">
